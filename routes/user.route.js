@@ -8,4 +8,9 @@ router.get("/",(request,response)=>{
     routeController.handleRequest(request, response, UserController.getAll)
 })
 
+router.get('/:id',(request,response) => {
+    console.log("get bt id route" +request.params);
+    routeController.handleRequest(request, response, UserController.getById)
+  });
+
 module.exports = router

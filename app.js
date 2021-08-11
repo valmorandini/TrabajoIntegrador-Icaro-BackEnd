@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use(apiPrefix + "/users",require("./routes/user.route"))
+app.use(apiPrefix + "/mensajes",require("./routes/mensaje.route"))
 
 
 app.get('/', (req, res) => {
