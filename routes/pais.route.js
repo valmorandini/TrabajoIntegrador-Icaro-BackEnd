@@ -1,16 +1,16 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
 const routeController = require("../common/route.controller")
-const MensajeController = require("../controllers/mensaje.controller")
+const PaisController = require("../controllers/pais.controller")
 
 router.get("/",(request,response)=>{
     console.log(request.query);
-    routeController.handleRequest(request, response, MensajeController.getAll)
+    routeController.handleRequest(request, response, PaisController.getAll)
 })
 
 router.get('/:id',(request,response) => {
     console.log("get bt id route" +request.params);
-    routeController.handleRequest(request, response, MensajeController.getById)
+    routeController.handleRequest(request, response, PaisController.getById)
   });
 
 module.exports = router

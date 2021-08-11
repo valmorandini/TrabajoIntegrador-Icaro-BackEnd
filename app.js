@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 
 app.use(apiPrefix + "/users",require("./routes/user.route"))
 app.use(apiPrefix + "/mensajes",require("./routes/mensaje.route"))
+app.use(apiPrefix + "/paises",require("./routes/pais.route"))
+app.use(apiPrefix + "/ciudades",require("./routes/ciudad.route"))
 
 
 app.get('/', (req, res) => {
