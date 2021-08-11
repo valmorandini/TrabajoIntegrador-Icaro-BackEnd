@@ -1,4 +1,6 @@
 const PaisModel = require('../models/paisModel')
+const error = require("../common/error")
+const exceptions = require("../common/exceptions")
 
 
 const getAllService = async (query) =>{
@@ -13,7 +15,7 @@ const getById = async (paisId) =>{
   const pais = await PaisModel.findByPk(paisId);
   console.log("get pais service "+pais)
   if(!pais){
-      throw new error.AppError(exceptions.exceptionType.users.notFound)
+      throw new error.AppError(exceptions.exceptionType.pais.notFound)
   }
   return pais;
 }

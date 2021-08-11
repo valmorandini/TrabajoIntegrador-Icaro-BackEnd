@@ -1,4 +1,6 @@
 const MensajeModel = require('../models/mensajeModel')
+const error = require("../common/error")
+const exceptions = require("../common/exceptions")
 
 
 const getAllService = async (query) =>{
@@ -13,7 +15,7 @@ const getById = async (msjId) =>{
   const msj = await MensajeModel.findByPk(msjId);
   console.log("get msj service "+msj)
   if(!msj){
-      throw new error.AppError(exceptions.exceptionType.users.notFound)
+      throw new error.AppError(exceptions.exceptionType.mensaje.notFound)
   }
   return msj;
 }

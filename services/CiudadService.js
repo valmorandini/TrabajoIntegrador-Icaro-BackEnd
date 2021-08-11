@@ -1,4 +1,6 @@
 const CiudadModel = require('../models/ciudadModel')
+const error = require("../common/error")
+const exceptions = require("../common/exceptions")
 
 
 const getAllService = async (query) =>{
@@ -13,7 +15,7 @@ const getById = async (ciudadId) =>{
   const ciudad = await CiudadModel.findByPk(ciudadId);
   console.log("get ciudad service "+ciudad)
   if(!ciudad){
-      throw new error.AppError(exceptions.exceptionType.users.notFound)
+      throw new error.AppError(exceptions.exceptionType.ciudad.notFound)
   }
   return ciudad;
 }

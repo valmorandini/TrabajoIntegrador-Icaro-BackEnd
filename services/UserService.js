@@ -1,4 +1,6 @@
 const UserModel = require('../models/userModel')
+const error = require("../common/error")
+const exceptions = require("../common/exceptions")
 
 
 const getAllService = async (query) =>{
