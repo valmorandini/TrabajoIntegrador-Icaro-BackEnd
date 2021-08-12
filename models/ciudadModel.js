@@ -11,12 +11,12 @@ const CiudadModel = sequelizeConnection.define(
       autoIncrement: true,
       field: 'ciudad_id'
     },
-    name: {
+    nombre: {
       type: Sequelize.STRING,
       allowNull: false,
       field: 'nombre'
     },
-    countryId: {
+    pais_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'pais_id'

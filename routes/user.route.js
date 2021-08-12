@@ -13,4 +13,9 @@ router.get('/:id',(request,response) => {
     routeController.handleRequest(request, response, UserController.getById)
   });
 
+router.post('/',(request,response) => {
+    console.log("get bt id route" +request.params);
+    routeController.handleRequest(request, response, UserController.create)
+  });
+
 module.exports = router

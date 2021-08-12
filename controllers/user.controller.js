@@ -16,7 +16,16 @@ const getById = async (req,res) => {
     return res.status(200).json(user)
 }
 
+const create = async (req,res) => {
+    const data = req.body
+    console.log("INIT CREATE USER  data:" + JSON.stringify(data))
+    const newUser = await UserService.createUser(data);
+    console.log(JSON.stringify(newUser))
+    return res.status(201).json(newUser)
+}
+
 module.exports = {
     getAll,
     getById,
+    create
 }

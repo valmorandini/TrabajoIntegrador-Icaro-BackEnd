@@ -11,7 +11,7 @@ const PaisModel = sequelizeConnection.define(
       autoIncrement: true,
       field: 'pais_id'
     },
-    name: {
+    nombre: {
       type: Sequelize.STRING,
       allowNull: false,
       field: 'nombre'

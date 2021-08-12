@@ -11,17 +11,17 @@ const UserModel = sequelizeConnection.define(
       autoIncrement: true,
       field: 'usuario_id'
     },
-    userName: {
+    nombre_usuario: {
       type: Sequelize.STRING,
       allowNull: false,
       field: 'nombre_usuario'
     },
-    name: {
+    nombre: {
         type: Sequelize.STRING,
         allowNull: false,
         field: 'nombre'
       },
-    lastName: {
+      apellido: {
         type: Sequelize.STRING,
         allowNull: false,
         field: 'apellido'
@@ -30,7 +30,7 @@ const UserModel = sequelizeConnection.define(
       type: Sequelize.STRING,
       allowNull: false
     },
-    city: {
+    ciudad_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'ciudad_id'

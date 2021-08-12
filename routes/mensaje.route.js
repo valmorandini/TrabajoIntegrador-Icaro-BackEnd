@@ -13,4 +13,10 @@ router.get('/:id',(request,response) => {
     routeController.handleRequest(request, response, MensajeController.getById)
   });
 
+router.post('/',(request,response) => {
+    console.log("create route mensajes" +request.params);
+    routeController.handleRequest(request, response, MensajeController.create)
+  });
+
+
 module.exports = router

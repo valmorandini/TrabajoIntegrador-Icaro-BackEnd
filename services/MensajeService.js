@@ -20,7 +20,17 @@ const getById = async (msjId) =>{
   return msj;
 }
 
+const create = async (data) => {
+  const {cuerpo, remitente_id, destinatario_id, fecha } = data
+  console.log("Crear mensaje:"+ JSON.stringify({cuerpo, remitente_id, destinatario_id, fecha }));
+  const mensaje = await MensajeModel.create(data)
+  return mensaje.id;
+}
+
+
+
 module.exports = {
   getAllService,
   getById,
+  create,
 }

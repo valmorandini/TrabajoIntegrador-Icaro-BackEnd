@@ -11,21 +11,22 @@ const MensajeModel = sequelizeConnection.define(
       autoIncrement: true,
       field: 'mensaje_id'
     },
-    body: {
+    cuerpo: {
       type: Sequelize.STRING,
+      allowNull: false,
       field: 'cuerpo'
     },
-    sender: {
+    remitente_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'remitente_id'
       },
-    addressee: {
+    destinatario_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'destinatario_id'
       },   
-    date: {
+    fecha: {
       type: Sequelize.DATE,
       allowNull: false,
       field: 'fecha'
