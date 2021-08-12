@@ -11,7 +11,7 @@ const UserModel = sequelizeConnection.define(
       autoIncrement: true,
       field: 'usuario_id'
     },
-    nombre_usuario: {
+    userName: {
       type: Sequelize.STRING,
       allowNull: false,
       field: 'nombre_usuario'
@@ -21,7 +21,7 @@ const UserModel = sequelizeConnection.define(
         allowNull: false,
         field: 'nombre'
       },
-      apellido: {
+    apellido: {
         type: Sequelize.STRING,
         allowNull: false,
         field: 'apellido'
@@ -34,11 +34,19 @@ const UserModel = sequelizeConnection.define(
         type: Sequelize.INTEGER,
         allowNull: false,
         field: 'ciudad_id'
-      }
+      },
+    createdAt: {
+        type: Sequelize.DATE,
+        field: 'created_at'
+      },
+    updatedAt: {
+        type: Sequelize.DATE,
+        field: 'updated_at'
+      }  
   },
   {
     tableName: 'user',
-    timestamps: false
+    timestamps: true
   }
 )
 module.exports = UserModel

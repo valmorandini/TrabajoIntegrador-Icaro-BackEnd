@@ -24,8 +24,20 @@ const create = async (req,res) => {
     return res.status(201).json(newMsj)
 }
 
+const eliminar = async (req,res) => {
+    console.log(req.params);
+    const params = req.params
+    const mensajeId = params.id
+    console.log("Delete MSJ data:" + JSON.stringify(params))
+    const mensaje = await MensajeService.eliminar(mensajeId);
+    console.log(JSON.stringify(mensaje))
+    return res.status(200).json(mensaje)
+
+}
+
 module.exports = {
     getAll,
     getById,
-    create
+    create,
+    eliminar
 }

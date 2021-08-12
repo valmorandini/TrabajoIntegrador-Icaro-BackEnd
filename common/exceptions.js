@@ -9,6 +9,15 @@ const exceptionType = {
         message: "Not found",
         httpStatus: 404
     },
+    badRequest:{
+        code: 400,
+        message: "Bad Request",
+        httpStatus: 400
+    },
+    invalidToken:
+    {   code: 501, 
+        message: 'Invalid token'
+    },
     pais : {
         notFound: {
             code: 1000,
