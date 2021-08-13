@@ -4,8 +4,9 @@ const exceptions = require("../common/exceptions")
 
 
 const getAllService = async (query) =>{
+  const where = {pais_id: query.pais_id}
   console.log("getAll - query["+ JSON.stringify(query)+"]");
-  const ciudades = await CiudadModel.findAll();
+  const ciudades = await CiudadModel.findAll({where: where});
   console.log("get ciudades service "+ciudades)
   return ciudades;
 }

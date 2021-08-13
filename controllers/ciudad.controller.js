@@ -1,9 +1,15 @@
 const CiudadService = require("../services/CiudadService");
+const error = require("../common/error")
+const exceptions = require('../common/exceptions')
 
 const getAll = async (req, res) => {
     const query = req.query
-    const ciudades = await CiudadService.getAllService(query)
-    console.log("get all controller - query: " + JSON.stringify(query))
+    if(!query.pais_id){
+        throw new error.AppError(exceptions.exceptionType.badRequest,"debe colocar id_pais")
+    }
+    const filter = {pais_id: query.pais_id }
+    const ciudades = await CiudadService.getAllService(filter)
+    console.log("get all controller - query: " + JSON.stringify(filter))
     res.status(200).json(ciudades)
 }
 

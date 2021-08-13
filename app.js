@@ -6,8 +6,11 @@ const config = require('config')
 const apiPrefix = config.get('apiPrefix')
 const passport = require("passport")
 const passportConfig = require("./config/server/passportConfig")
+const cors = require('cors')
 
-const bodyParser = require("body-parser");  
+const bodyParser = require("body-parser"); 
+
+app.use(cors())
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -27,6 +30,7 @@ app.get('/', (req, res) => {
 
 // add router in the Express app.
 app.use("/", router);
+
 
 passport.use(passportConfig.createStrategy())
 app.use(passport.initialize())
