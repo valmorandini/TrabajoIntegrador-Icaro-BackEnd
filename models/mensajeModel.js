@@ -30,6 +30,12 @@ const MensajeModel = sequelizeConnection.define(
       type: Sequelize.DATE,
       allowNull: false,
       field: 'fecha'
+    },
+    estado: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      field: 'estado',
+      defaultValue: "activo"
     }
   },
   {

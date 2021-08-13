@@ -3,9 +3,16 @@ const error = require("../common/error")
 const exceptions = require("../common/exceptions")
 
 
-const getAllService = async (query) =>{
-  console.log("getAll - query["+ JSON.stringify(query)+"]");
-  const msjs = await MensajeModel.findAll();
+const getAllService = async ({remitente_id, destinatario_id}) =>{
+  console.log("getAll - remitente id:"+remitente_id +"- destinatario id:"+destinatario_id);
+  const where = {estado: "activo"}
+  if(remitente_id){
+    where.remitente_id = remitente_id;
+  }
+  if(destinatario_id){
+    where.destinatario_id = destinatario_id;
+  }
+  const msjs = await MensajeModel.findAll({where:where});
   console.log("get msj service "+msjs)
   return msjs;
 }
@@ -32,9 +39,9 @@ const create = async (data) => {
 }
 
 const eliminar = async (msjId) => {
-  console.log("Delete by id - msjId["+ msjId+"]");
+  console.log("Update status (eliminado) - msjId["+ msjId+"]");
   try {
-    return await MensajeModel.destroy({
+    return await MensajeModel.update({estado: "eliminado"},{
       where: {mensaje_id: msjId}
     })
   } catch (e) {

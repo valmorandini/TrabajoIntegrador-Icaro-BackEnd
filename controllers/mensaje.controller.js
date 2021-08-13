@@ -1,9 +1,21 @@
 const MensajeService = require("../services/MensajeService");
+const error = require('../common/error')
+const exceptions = require('../common/exceptions')
 
 const getAll = async (req, res) => {
     const query = req.query
-    const mensajes = await MensajeService.getAllService(query)
-    console.log("get all controller - query: " + JSON.stringify(query))
+    console.log("get all controller - query : "+JSON.stringify(query))
+    if(!req.query.remitente_id && !req.query.destinatario_id){
+        throw new error.AppError(exceptions.exceptionType.badRequest,"debe colocar un remitente_id o un destinatario_id")
+    }
+    const filter = {}
+    if(req.query.remitente_id){
+        filter.remitente_id = req.query.remitente_id
+    }
+    if(req.query.destinatario_id){
+        filter.destinatario_id = req.query.destinatario_id
+    }
+    const mensajes = await MensajeService.getAllService(filter)
     res.status(200).json(mensajes)
 }
 
